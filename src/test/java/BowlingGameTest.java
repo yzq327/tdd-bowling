@@ -1,10 +1,15 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BowlingGameTest {
-    BowlingGame bowlinggame = new BowlingGame();
+    BowlingGame bowlinggame ;
+    @BeforeEach
+    void setUp() {
+        bowlinggame = new BowlingGame();
+    }
 
     @Test
     void should_return_total_score(){
@@ -19,9 +24,9 @@ public class BowlingGameTest {
     }
     @Test
     void should_return_total_score2(){
-        int[] scoreNUmbers2={1,9,10,10,10,10,10,10,10,10,10,10,10};
+        int[] scoreNUmbers2={10,10,10,10,10,10,10,10,10,9,1,10};
         int totalScore2=bowlinggame.countScore(scoreNUmbers2);
-        int Excepted2=290;
+        int Excepted2=279;
         assertEquals(Excepted2, totalScore2);
     }
 
