@@ -15,7 +15,6 @@ public class BowlingGame {
         for (int i=0; i<len;i++){
             if(throw_number == 0){ //该轮的第一次投球
                 if(scoreNumbers[i]<bestScore){  //分数小于10
-
                     frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i];
                     throw_number ++;
                 }else {  //分数等于10
@@ -29,23 +28,21 @@ public class BowlingGame {
             }else if(throw_number == 1){   //该轮的第二次投球
                 if(scoreNumbers[i-1]+scoreNumbers[i] < bestScore){ //分数小于10
                     frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i];
+                    whichFrame ++;
                 }else{//分数等于10
                     if(whichFrame == frame_number-1){
                         frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i];
-                        throw_number --;
                     }else{
                         frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i]+scoreNumbers[i+1];
-                        throw_number --;
                         whichFrame ++;
                     }
                 }
-
+                throw_number --;
             }
         }
         int totalScore=sumFrameScore(frame_score);
         return totalScore;
     }
-
 
     private static int sumFrameScore(int[] frame_score){
         int totalSCore=0;
@@ -56,8 +53,17 @@ public class BowlingGame {
         return totalSCore;
     }
 
+    private static void isNormal(){
 
+    }
 
+    private static void isStrike(){
+
+    }
+
+    private static void isSpare(){
+
+    }
 
 
 

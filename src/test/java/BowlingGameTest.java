@@ -29,6 +29,13 @@ public class BowlingGameTest {
         int Excepted2=279;
         assertEquals(Excepted2, totalScore2);
     }
+    @Test
+    void should_return_total_score3(){
+        int[] scoreNUmbers2={1,4,4,5,6,4,5,5,10,0,1,7,3,6,4,10,2,6};
+        int totalScore2=bowlinggame.countScore(scoreNUmbers2);
+        int Excepted2=123;
+        assertEquals(Excepted2, totalScore2);
+    }
 
 
 }
