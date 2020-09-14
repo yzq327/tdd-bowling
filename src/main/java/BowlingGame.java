@@ -27,12 +27,7 @@ public class BowlingGame {
             isNormal(scoreNumbers, i);
             throw_number ++;
         }else {
-            if(whichFrame == frame_number-1){
-                isNormal(scoreNumbers, i);
-            }else{
-                isStrike(scoreNumbers, i);
-                whichFrame++;
-            }
+            isStrike(scoreNumbers, i);
         }
         return whichFrame;
     }
@@ -42,23 +37,30 @@ public class BowlingGame {
             isNormal(scoreNumbers, i);
             whichFrame++;
         }else{
-            if(whichFrame == frame_number-1){
-                isNormal(scoreNumbers, i);
-            }else{
-                isSpare(scoreNumbers, i);
-                whichFrame++;
-            }
+            isSpare(scoreNumbers, i);
         }
         throw_number --;
         return whichFrame;
     }
 
     private void isSpare(int[] scoreNumbers,  int i) {
-        frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i]+ scoreNumbers[i+1];
+        if(whichFrame == frame_number-1){
+            frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i];
+        }else{
+            frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i]+ scoreNumbers[i+1];
+            whichFrame++;
+        }
+
     }
 
     private void isStrike(int[] scoreNumbers, int i) {
-        frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i]+ scoreNumbers[i+1]+ scoreNumbers[i+2];
+        if(whichFrame == frame_number-1){
+            frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i];
+        }else{
+            frame_score[whichFrame] = frame_score[whichFrame] + scoreNumbers[i]+ scoreNumbers[i+1]+ scoreNumbers[i+2];
+            whichFrame++;
+        }
+
     }
 
     private void isNormal(int[] scoreNumbers,  int i) {
