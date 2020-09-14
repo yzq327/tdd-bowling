@@ -19,7 +19,6 @@ public class BowlingGameTest {
         int totalScore1=bowlinggame.countScore(scoreNumbers1);
         int totalScore2=bowlinggame.countScore(scoreNUmbers2);
         int totalScore3=bowlinggame.countScore(scoreNUmbers3);
-        int Excepted1=0;
 
         assertEquals(0, totalScore1);
         assertEquals(300, totalScore2);
